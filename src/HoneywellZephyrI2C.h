@@ -14,7 +14,9 @@
  * HAF flow sensor driver for the Arduino platform.  It is designed based on
  * the <a href="https://sensing.honeywell.com/sensors/airflow-sensors/HAF-high-accuracy-50SCCM-750SCCM-series">
  * Honeywell technical note</a> for this product.
- *
+ 
+ * DEC.11/2019 added driver for SLPM models of Honeywell Zephyr 
+ * a PDF datasheet was added to the main folder as a reference
  * @section dependencies Dependencies
  *
  * This library depends on the  <a href="https://www.arduino.cc/en/Reference/Wire">
@@ -49,7 +51,9 @@ class ZephyrFlowRateSensor
     @param    address
               7-bit i2c address of the sensor
     @param    range
-              the flow rate range of the sensor
+              the flow rate range of the sensor in CCM  for use with flow()
+			  									or LPM	for use with flowLPM()
+			   
     */
     /**************************************************************************/
     ZephyrFlowRateSensor(const uint8_t address, const float range)
@@ -123,6 +127,22 @@ class ZephyrFlowRateSensor
     */
     /**************************************************************************/
     float flow() const { return _FLOW_RANGE * ( ( (float)_count/16384.0) - 0.5)/0.4; }
+
+    /**************************************************************************/
+    /*!
+    @brief  Read the most recently polled flow rate value converted to SLPM
+        Update this value by calling readSensor() before reading.
+		Full Scale Flow refers to the LPM of the device eg. 100LPM = 100
+
+        Flow Applied = Full Scale Flow * [(Digital Output Code/16384) - 0.1]/0.8
+
+    @return  The flow rate value from the most recent reading in SLPM
+    */
+    /**************************************************************************/
+	float flowLPM() const { return _FLOW_RANGE * ( ( (float)_count/16384) - 0.1)/.8; }
+	
+	
+	
 };
 
 #endif // End __HONEYWELL_ZEPHYR_I2C_H__ include guard
