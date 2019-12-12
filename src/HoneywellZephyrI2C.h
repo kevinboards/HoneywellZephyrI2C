@@ -120,7 +120,7 @@ class ZephyrFlowRateSensor
     /*!
     @brief  Read the most recently polled flow rate value converted to SCCM
         Update this value by calling readSensor() before reading.
-
+		Full Scale Flow refers to the SCCM of the device eg. 50 SCCM = 50
         Flow Applied = Full Scale Flow * [(Digital Output Code/16384) - 0.5]/0.4
 
     @return  The flow rate value from the most recent reading in SCCM
@@ -132,7 +132,7 @@ class ZephyrFlowRateSensor
     /*!
     @brief  Read the most recently polled flow rate value converted to SLPM
         Update this value by calling readSensor() before reading.
-		Full Scale Flow refers to the LPM of the device eg. 100LPM = 100
+		Full Scale Flow refers to the SLPM of the device eg. 100LPM = 100
 
         Flow Applied = Full Scale Flow * [(Digital Output Code/16384) - 0.1]/0.8
 
