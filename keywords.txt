@@ -10,3 +10,4 @@ begin	KEYWORD2
 readSensor	KEYWORD2
 rawFlow	KEYWORD2
 flow	KEYWORD2
+flowLPM KEYWORD2
