@@ -20,7 +20,10 @@ For details on installing libraries, see Arduino's guide at: https://www.arduino
 Include the library and declare a sensor:
 ```C
 #include <HoneywellZephyrI2C.h>
-// construct a 50 SCCM sensor with address 0x49
+// construct a 50 SCCM or SLPM sensor with address 0x49
+// It does not matter if the sensor is SCCM or SLPM for this value (eg. 50), 
+// for SCCM use sensor.flow()
+// for SLPM use sensor.flowLPM()
 ZephyrFlowRateSensor sensor( 0x49, 50 );
 ```
 Initialize the sensor in `void setup()` :
