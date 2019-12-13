@@ -3,7 +3,7 @@ An Arduino library for communicating with Honeywell Zephyr HAF digital flow rate
 
 Based on the Honeywell datasheets at: https://sensing.honeywell.com/sensors/airflow-sensors/HAF-high-accuracy-50SCCM-750SCCM-series. There is a also a copy of the datasheet in this repository.
 
-Modified to work with the Honeywell SLPM Models of Zephyr Air Flow Sensor https://sensing.honeywell.com/sensors/airflow-sensors/HAF-high-accuracy-10SLPM-300SLPM
+Updated to support the Honeywell SLPM Models of Zephyr Air Flow Sensor https://sensing.honeywell.com/sensors/airflow-sensors/HAF-high-accuracy-10SLPM-300SLPM
 There is also a copy of the datasheet in this repository.
 
 #### View the documentation
